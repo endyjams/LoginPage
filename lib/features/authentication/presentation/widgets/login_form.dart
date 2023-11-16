@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:login_page/features/authentication/state/login_store.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -10,7 +11,7 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final loginStore = Provider.of<LoginStore>(context);
 
-    return Form(
+    return SingleChildScrollView(
       child: Column(
         children: <Widget>[
           Observer(
@@ -20,11 +21,12 @@ class LoginForm extends StatelessWidget {
                 loginStore.validateUsername();
               },
               decoration: InputDecoration(
-                labelText: 'Username',
+                labelText: 'Usuário',
                 errorText: loginStore.usernameError,
               ),
             ),
           ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
           Observer(
             builder: (_) => TextFormField(
               onChanged: (value) {
@@ -32,11 +34,12 @@ class LoginForm extends StatelessWidget {
               },
               obscureText: true,
               decoration: InputDecoration(
-                labelText: 'Password',
+                labelText: 'Senha',
                 errorText: loginStore.passwordError,
               ),
             ),
           ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
           Observer(
             builder: (_) => ElevatedButton(
               onPressed: () {
@@ -46,7 +49,7 @@ class LoginForm extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 shape: const StadiumBorder(),
-                backgroundColor: Colors.green[400],
+                backgroundColor: Colors.green.shade400,
                 padding: EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width * 0.16,
                   vertical: MediaQuery.of(context).size.height * 0.0185,
@@ -55,7 +58,6 @@ class LoginForm extends StatelessWidget {
               child: const Text('Entrar'),
             ),
           ),
-          // Add more widgets as needed
         ],
       ),
     );
