@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:login_page/features/authentication/state/login_store.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -8,10 +9,11 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final LoginStore _loginStore = LoginStore();
 
   @override
   Widget build(BuildContext context) {
+    final _loginStore = Provider.of<LoginStore>(context);
+
     return Form(
       child: Column(
         children: <Widget>[
