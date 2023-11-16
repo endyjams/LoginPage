@@ -31,7 +31,6 @@ class _LoginFormState extends State<LoginForm> {
             builder: (_) => TextFormField(
               onChanged: (value) {
                 _loginStore.password = value;
-                _loginStore.validatePassword();
               },
               obscureText: true,
               decoration: InputDecoration(
@@ -42,9 +41,10 @@ class _LoginFormState extends State<LoginForm> {
           ),
           Observer(
             builder: (_) => ElevatedButton(
-              onPressed: _loginStore.canLogin ? () {
-                // TODO: Implement login logic
-              } : null,
+              onPressed: () {
+                _loginStore.validateUsername();
+                _loginStore.validatePassword();
+              },
               child: const Text('Login'),
             ),
           ),
