@@ -17,6 +17,7 @@ dependencies:
   mobx_codegen: ^2.4.0
   build_runner: ^2.4.6
   flutter_mobx: ^2.1.1
+  url_launcher: ^6.2.1
 
 dev_dependencies:
   flutter_test:
