@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
               child: InkWell(
                 onTap: () => _launchURL(Uri.parse('https://www.google.com')),
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.04),
+                  padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.045),
                   child: const Text(
                     'Política de Privacidade',
                     textAlign: TextAlign.center,
