@@ -24,13 +24,13 @@ class LoginForm extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.02,
-                  bottom: MediaQuery.of(context).size.height * 0.005,
+                  bottom: MediaQuery.of(context).size.height * 0.008,
                 ),
                 child: Text(
                   'Usuário',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: MediaQuery.of(context).size.height * 0.022,
+                    fontSize: MediaQuery.of(context).size.height * 0.023,
                   ),
                 ),
               ),
@@ -49,10 +49,12 @@ class LoginForm extends StatelessWidget {
                     color: Colors.black,
                   ),
                   errorText: loginStore.usernameError,
+                  errorStyle: TextStyle(fontSize: MediaQuery.of(context).size.height * 0.02),
                   filled: true,
                   fillColor: Colors.white,
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide.none,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(6),
+                      borderSide: BorderSide.none
                   ),
                 ),
               ),
@@ -76,13 +78,13 @@ class LoginForm extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.02,
-                  bottom: MediaQuery.of(context).size.height * 0.005,
+                  bottom: MediaQuery.of(context).size.height * 0.008,
                 ),
                 child: Text(
                   'Senha',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: MediaQuery.of(context).size.height * 0.022,
+                    fontSize: MediaQuery.of(context).size.height * 0.023,
                   ),
                 ),
               ),
@@ -102,10 +104,12 @@ class LoginForm extends StatelessWidget {
                   ),
                   filled: true,
                   fillColor: Colors.white,
-                  border: const OutlineInputBorder(
-                    borderSide: BorderSide.none,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(6),
+                    borderSide: BorderSide.none
                   ),
                   errorText: loginStore.passwordError,
+                  errorStyle: TextStyle(fontSize: MediaQuery.of(context).size.height * 0.02),
                 ),
               ),
             ],
@@ -124,7 +128,7 @@ class LoginForm extends StatelessWidget {
           },
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
-            backgroundColor: const Color(0xFF44bd6e),
+            backgroundColor: const Color(0xFF54c477),
             padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.16,
               vertical: MediaQuery.of(context).size.height * 0.0185,
@@ -135,16 +139,16 @@ class LoginForm extends StatelessWidget {
       );
     }
 
-    return SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          buildLoginForm(),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-          buildPasswordForm(),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.045),
-          buildEnterButton(),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+        buildLoginForm(),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+        buildPasswordForm(),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.045),
+        buildEnterButton(),
+      ],
     );
   }
 }
