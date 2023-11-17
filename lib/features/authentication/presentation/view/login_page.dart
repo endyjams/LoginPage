@@ -17,37 +17,33 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      decoration: BoxDecoration(gradient: GradientBackground()),
-      child: Center(
+      body: Container(
+        decoration: BoxDecoration(gradient: GradientBackground()),
         child: Stack(
           children: [
             const Align(
               alignment: Alignment.center,
               child: LoginForm(),
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    InkWell(
-                      onTap: () =>
-                          _launchURL(Uri.parse('https://www.google.com')),
-                      child: const Text(
-                        'Política de Privacidade',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04)
-                  ],
+            Positioned(
+              bottom: MediaQuery.of(context).padding.bottom,
+              left: 0,
+              right: 0,
+              child: InkWell(
+                onTap: () => _launchURL(Uri.parse('https://www.google.com')),
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'Política de Privacidade',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ),
           ],
         ),
       ),
-    ));
+    );
   }
 }
