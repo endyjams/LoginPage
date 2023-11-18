@@ -1,4 +1,4 @@
-#Fri Nov 17 19:23:33 BRT 2023
+#Sat Nov 18 10:07:34 BRT 2023
 base.0=/Users/endy.jams/Desktop/ProcessoSeletivo_TargetSistemas/LoginPage/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

@@ -37,10 +37,10 @@ abstract class _LoginStore with Store {
   @action
   void validateUsername() {
     if (username.isEmpty) {
-      usernameError = 'Please enter your username';
+      usernameError = 'Digite seu usuário';
     } else if (!isUsernameValid) {
       usernameError =
-          'Username cannot exceed 20 characters\nand cannot end with space';
+          'Usuário não pode exceder 20 caracteres\ne não pode terminar com espaço';
     } else {
       usernameError = null;
     }
@@ -49,10 +49,10 @@ abstract class _LoginStore with Store {
   @action
   void validatePassword() {
     if (password.isEmpty) {
-      passwordError = 'Please enter your password';
+      passwordError = 'Digite sua senha';
     } else if (!isPasswordValid) {
       passwordError =
-          'Password must be at least 2 characters long,\nno special characters, and less than 20 characters\nand cannot end with space';
+          'A senha deve ter ao menos 2 caracteres,\nsem caracteres especiais, menos de 20 caracteres\ne não pode terminar com espaço';
     } else {
       passwordError = null;
     }

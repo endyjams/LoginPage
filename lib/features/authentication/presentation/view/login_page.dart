@@ -17,20 +17,20 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: LayoutBuilder(builder: (context, constraints) {
         return Container(
           constraints: BoxConstraints(
-            minHeight: constraints.maxHeight,
-            minWidth: constraints.maxWidth
+              minHeight: constraints.maxHeight,
+              minWidth: constraints.maxWidth
           ),
           decoration: BoxDecoration(
             gradient: gradientBackground(),
           ),
-          child: Stack(
-            children: [
-              Align(
-                alignment: Alignment.topCenter,
-                child: Padding(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
                   padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.02),
                   child: Image.asset(
@@ -41,14 +41,9 @@ class LoginPage extends StatelessWidget {
                         0.35, // Specify your desired height
                   ),
                 ),
-              ),
-              const Align(
-                alignment: Alignment.center,
-                child: LoginForm(),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: InkWell(
+                LoginForm(),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.18),
+                InkWell(
                   onTap: () => _launchURL(Uri.parse('https://www.google.com')),
                   child: Padding(
                     padding: EdgeInsets.only(
@@ -61,8 +56,8 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       }),

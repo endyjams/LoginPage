@@ -44,9 +44,10 @@ class LoginForm extends StatelessWidget {
                     vertical: MediaQuery.of(context).size.height * 0.01,
                   ),
                   floatingLabelBehavior: FloatingLabelBehavior.never,
-                  prefixIcon: const Icon(
+                  prefixIcon: Icon(
                     Icons.person,
                     color: Colors.black,
+                    size: MediaQuery.of(context).size.height * 0.025,
                   ),
                   errorText: loginStore.usernameError,
                   errorStyle: TextStyle(fontSize: MediaQuery.of(context).size.height * 0.02),
@@ -98,9 +99,10 @@ class LoginForm extends StatelessWidget {
                     vertical: MediaQuery.of(context).size.height * 0.01,
                   ),
                   floatingLabelBehavior: FloatingLabelBehavior.never,
-                  prefixIcon: const Icon(
+                  prefixIcon: Icon(
                     Icons.lock,
                     color: Colors.black,
+                    size: MediaQuery.of(context).size.height * 0.025,
                   ),
                   filled: true,
                   fillColor: Colors.white,
@@ -140,9 +142,8 @@ class LoginForm extends StatelessWidget {
     }
 
     return Column(
-      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.045),
         buildLoginForm(),
         SizedBox(height: MediaQuery.of(context).size.height * 0.03),
         buildPasswordForm(),
