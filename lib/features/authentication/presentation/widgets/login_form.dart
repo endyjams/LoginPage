@@ -142,6 +142,7 @@ class LoginForm extends StatelessWidget {
     }
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         SizedBox(height: MediaQuery.of(context).size.height * 0.045),
         buildLoginForm(),

@@ -16,9 +16,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: LayoutBuilder(builder: (context, constraints) {
+      return LayoutBuilder(builder: (context, constraints) {
         return Container(
           constraints: BoxConstraints(
               minHeight: constraints.maxHeight,
@@ -27,40 +25,43 @@ class LoginPage extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: gradientBackground(),
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.02),
-                  child: Image.asset(
-                    'assets/images/target_sistemas_logo.png',
-                    width: MediaQuery.of(context).size.width *
-                        0.35, // Specify your desired width
-                    height: MediaQuery.of(context).size.height *
-                        0.35, // Specify your desired height
-                  ),
-                ),
-                LoginForm(),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.18),
-                InkWell(
-                  onTap: () => _launchURL(Uri.parse('https://www.google.com')),
-                  child: Padding(
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
                     padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).size.height * 0.045,
-                    ),
-                    child: const Text(
-                      'Política de Privacidade',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Color(0xFFd2eaea)),
+                        top: MediaQuery.of(context).size.height * 0.02),
+                    child: Image.asset(
+                      'assets/images/target_sistemas_logo.png',
+                      width: MediaQuery.of(context).size.width *
+                          0.35, // Specify your desired width
+                      height: MediaQuery.of(context).size.height *
+                          0.35, // Specify your desired height
                     ),
                   ),
-                ),
-              ],
+                  LoginForm(),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.18),
+                  InkWell(
+                    onTap: () => _launchURL(Uri.parse('https://www.google.com')),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).size.height * 0.045,
+                      ),
+                      child: const Text(
+                        'Política de Privacidade',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Color(0xFFd2eaea)),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );
-      }),
+      }
     );
   }
 }
